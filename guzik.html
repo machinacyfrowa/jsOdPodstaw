@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onmouseover="run()" style="position: fixed;" id="btn">Kliknij mnie</button>
+
+    <script>
+        function run() {
+
+            //console.log("dziala!");
+            let btn = document.getElementById("btn");
+            let maxTop = window.innerHeight;
+            maxTop -= btn.clientHeight;
+            let maxLeft = window.innerWidth;
+            maxLeft -= btn.clientWidth;
+            //console.log(btn);
+
+            let r = Math.random(); // <0;1> -> 0.374681293
+            r *= maxLeft// 37.46... (r = r * 100)
+            r = Math.round(r); //37
+            r = r.toString() + "px";  /// 37 -> "37" + "px" -> "37px"
+            btn.style.left = r;
+
+            r = Math.random(); // <0;1> -> 0.374681293
+            r *= maxTop// 37.46... (r = r * 100)
+            r = Math.round(r); //37
+            r = r.toString() + "px";  /// 37 -> "37" + "px" -> "37px"
+            btn.style.top = r;
+        }
+
+        setInterval(run, 1000);
+    </script>
+</body>
+</html>
