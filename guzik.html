@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <button onmouseover="run()" style="position: fixed;" id="btn">Kliknij mnie</button>
 
+    <button onclick="stop()" style="position: fixed;" id="btn">Kliknij mnie</button>
+ 
     <script>
         function run() {
 
@@ -31,9 +32,14 @@
             r = Math.round(r); //37
             r = r.toString() + "px";  /// 37 -> "37" + "px" -> "37px"
             btn.style.top = r;
+         
+            
+        }
+        function stop() {
+            window.clearInterval(i);
         }
 
-        setInterval(run, 1000);
+        var i = window.setInterval(run, 1000);
     </script>
 </body>
 </html>
