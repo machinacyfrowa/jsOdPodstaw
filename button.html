@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onmouseover="run()" 
+            onclick="win()"
+            style="position: fixed;" 
+            id="btn">
+        Złap mnie</button>
+        <!-- komentarz -->
+
+        <script>
+            function run() {
+                let btn = document.getElementById("btn");
+                //console.log(btn);
+                let r = Math.random(); /* <0;1> -> 0.38758 */
+                r *= window.innerHeight; // r = r * wys -> 38.758
+                r = Math.round(r); // 38
+                r -= btn.clientHeight;
+                let top = r.toString() + "px"; // 38 -> "38" + "px"
+                btn.style.top = top;
+
+                r = Math.random(); /* <0;1> -> 0.38758 */
+                r *= window.innerWidth; // r = r * wys -> 38.758
+                r = Math.round(r); // 38
+                r -= btn.clientWidth;
+                let left = r.toString() + "px";
+                btn.style.left = left;
+
+                console.log("Najechałeś na guzik!");
+            }
+            function win() {
+                window.alert("Gratki!");
+            }
+            setInterval("run()", 1000);
+        </script>
+</body>
+</html>
